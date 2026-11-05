@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Зургийн цомог портал - Санал хүсэлт</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 24px; }
+    .card { max-width: 480px; margin: 0 auto; background: #fff; padding: 24px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    h1 { font-size: 22px; margin-top: 0; }
+    label { display: block; margin: 14px 0 4px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 8px; border: 2px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+    textarea { min-height: 110px; resize: vertical; }
+    input.valid, textarea.valid { border-color: #2e9e5b; }
+    input.invalid, textarea.invalid { border-color: #d33; }
+    .error { color: #d33; font-size: 13px; min-height: 16px; margin-top: 3px; }
+    button { margin-top: 16px; padding: 10px 20px; background: #1565c0; color: #fff; border: 0; border-radius: 6px; font-size: 15px; cursor: pointer; }
+    .status { margin-top: 14px; font-weight: bold; }
+    .status.ok { color: #2e9e5b; }
+    .status.bad { color: #d33; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Санал хүсэлтийн форм</h1>
+    <form id="feedbackForm" novalidate>
+      <label for="name">Нэр</label>
+      <input type="text" id="name" placeholder="Таны нэр">
+      <div class="error" id="nameError"></div>
+
+      <label for="email">И-мэйл</label>
+      <input type="email" id="email" placeholder="bold@example.com">
+      <div class="error" id="emailError"></div>
+
+      <label for="password">Нууц үг</label>
+      <input type="password" id="password" placeholder="Дор хаяж 8 тэмдэгт">
+      <div class="error" id="passwordError"></div>
+
+      <label for="message">Санал хүсэлт</label>
+      <textarea id="message" placeholder="10–500 тэмдэгт"></textarea>
+      <div class="error" id="messageError"></div>
+
+      <button type="submit">Илгээх</button>
+      <div id="status" class="status"></div>
+    </form>
+  </div>
+
+  <script src="js/basics.js"></script>
+  <script src="js/algorithms.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
