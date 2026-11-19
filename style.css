@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,120 +7,203 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f3f4f6;
-  color: #111827;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(59, 130, 246, 0.14), transparent 42%),
+    radial-gradient(circle at 88% 20%, rgba(168, 85, 247, 0.12), transparent 40%),
+    radial-gradient(circle at 75% 88%, rgba(14, 165, 233, 0.12), transparent 45%);
+  color: #0f172a;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 28px 18px;
+  line-height: 1.5;
 }
 
 .card {
-  background-color: #ffffff;
+  position: relative;
   width: 100%;
-  max-width: 460px;
-  padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  padding: 36px 34px;
+  border-radius: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow:
+    0 24px 50px -16px rgba(15, 23, 42, 0.1),
+    0 4px 14px -4px rgba(59, 130, 246, 0.08);
+  animation: cardAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 68px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4);
+  margin-top: 12px;
   margin-bottom: 20px;
-  color: #111827;
 }
 
 label {
   display: block;
-  font-weight: 600;
-  margin-top: 14px;
-  margin-bottom: 6px;
-  font-size: 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+  margin-top: 18px;
+  margin-bottom: 7px;
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 10px 12px;
-  font-size: 14px;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
+  padding: 13px 15px;
+  font-size: 14.5px;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   font-family: inherit;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #94a3b8;
+  background-color: #ffffff;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background-color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.14);
 }
 
 textarea {
-  min-height: 110px;
+  min-height: 124px;
   resize: vertical;
 }
 
-/* Валидацийн төлөвүүд */
+/* Буруу утгатай үеийн загвар */
 input.invalid,
 textarea.invalid {
-  border-color: #dc2626;
+  border-color: #ef4444;
   background-color: #fef2f2;
+  color: #991b1b;
+  animation: shakeSoft 0.25s ease;
 }
 
 input.invalid:focus,
 textarea.invalid:focus {
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
 }
 
+@keyframes shakeSoft {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Зөв утгатай үеийн загвар */
 input.valid,
 textarea.valid {
-  border-color: #16a34a;
-  background-color: #f0fdf4;
+  border-color: #10b981;
+  background-color: #ecfdf5;
+  color: #065f46;
 }
 
 input.valid:focus,
 textarea.valid:focus {
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+  border-color: #059669;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
 }
 
 .error {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+  font-size: 12.5px;
+  font-weight: 500;
   color: #dc2626;
-  font-size: 13px;
-  margin-top: 5px;
-  min-height: 16px;
 }
 
 button[type="submit"] {
-  margin-top: 20px;
-  background-color: #2563eb;
-  color: #ffffff;
-  border: none;
-  padding: 11px 20px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px 22px;
   font-size: 15px;
-  font-weight: 600;
-  border-radius: 8px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb 0%, #6d28d9 100%);
+  border: none;
+  border-radius: 14px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 button[type="submit"]:hover {
-  background-color: #1d4ed8;
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -8px rgba(37, 99, 235, 0.55);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
 }
 
 .status {
-  margin-top: 14px;
-  font-size: 14px;
+  margin-top: 18px;
+  font-size: 13.5px;
   font-weight: 600;
-  line-height: 1.4;
+  text-align: center;
+  border-radius: 14px;
+  transition: all 0.2s ease;
 }
 
 .status.ok {
-  color: #15803d;
+  padding: 13px 16px;
+  color: #065f46;
+  background-color: #d1fae5;
+  border: 1px solid #6ee7b7;
 }
 
 .status.bad {
-  color: #dc2626;
+  padding: 13px 16px;
+  color: #991b1b;
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
 }
